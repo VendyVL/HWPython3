@@ -3,7 +3,6 @@
 # Пример:
 
 # - для k = 8 список будет выглядеть так: [-21 ,13, -8, 5, −3, 2, −1, 1, 0, 1, 1, 2, 3, 5, 8, 13, 21]
-# Из условия задачи не очень понятно, как заданное число сочетается с числами Фибоначчи.
 
 n = int(input('Ввведите число '))
 
@@ -23,11 +22,13 @@ def round(list):
     res = []
     a = len(list)
     while a!=1:
-        res.append(-list[a-1])
+        if a%2 == 0:
+            res.append(-list[a-1])
+        else:
+            res.append(list[a-1])
         a = a - 1
     return res
 list = round(fib(n))
 list.extend(fib(n))
 print(list)
 
-# ну по крайней мере оно работает
